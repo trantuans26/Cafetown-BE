@@ -100,5 +100,10 @@ namespace Cafetown.Common
         /// </summary>
         [ExcelColumnName("Chi nhánh TK ngân hàng")]
         public string? BankBranch { get; set; }
+
+        /// <summary>
+        /// Mật khẩu
+        /// </summary>
+        public string? Password { get; set; }
     }
 }
