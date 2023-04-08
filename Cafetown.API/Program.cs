@@ -20,10 +20,15 @@ builder.Services.AddCors(p => p.AddPolicy("MyCors", build =>
 // Dependency Injection 
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
+
+// Phân hệ nhân viên
 builder.Services.AddScoped<IEmployeeBL, EmployeeBL>();
 builder.Services.AddScoped<IEmployeeDL, EmployeeDL>();
-builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 builder.Services.AddScoped<EmployeesController, EmployeesController>();
+
+// Phân hệ hàng hóa
+builder.Services.AddScoped<IInventoryDL, InventoryDL>();
+builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
 var app = builder.Build();
 
