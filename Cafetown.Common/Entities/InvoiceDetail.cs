@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cafetown.Common
 {
     /// <summary>
-    /// Hàng hóa
+    /// Chi tiết hóa đơn
     /// </summary>
-    public class Inventory : BaseEntity
+    public class InvoiceDetail : BaseEntity
     {
+        /// <summary>
+        /// ID hóa đơn
+        /// </summary>
+        public Guid? InvoiceID { get; set; }
+
+        /// <summary>
+        /// Mã hóa đơn
+        /// </summary>
+        public string? InvoiceCode { get; set; }
+
         /// <summary>
         /// ID hàng hóa
         /// </summary>
@@ -28,23 +37,21 @@ namespace Cafetown.Common
         public string? InventoryName { get; set; }
 
         /// <summary>
-        /// Danh mục hàng hóa
+        /// Đơn giá
         /// </summary>
-        public Guid? InventoryCategoryID { get; set; }
+        public float? Cost { get; set; }
 
         /// <summary>
         /// Số lượng
         /// </summary>
-        public int? Quantity { get; set; }    
+        public int? Quantity { get; set; }
 
         /// <summary>
-        /// Đơn giá
+        /// Tổng tiền
         /// </summary>
-        public int? Cost { get; set; }
+        public float? TotalCost { get; set; }   
 
-        /// <summary>
-        /// Mô tả
-        /// </summary>
-        public string? Description { get; set; }
+
+
     }
 }

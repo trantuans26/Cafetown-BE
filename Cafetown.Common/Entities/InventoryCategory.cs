@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cafetown.Common
 {
+    /// <summary>
+    /// Danh mục hàng hóa
+    /// </summary>
     public class InventoryCategory : BaseEntity
     {
         /// <summary>
