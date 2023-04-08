@@ -35,7 +35,6 @@ namespace Cafetown.Common
         /// <summary>
         /// Chức vụ
         /// </summary>
-        [ExcelColumnName("Chức danh")]
         public string? JobPosition { get; set; }
 
         /// <summary>
@@ -105,5 +104,15 @@ namespace Cafetown.Common
         /// Mật khẩu
         /// </summary>
         public string? Password { get; set; }
+
+        /// <summary>
+        /// Là nhân viên
+        /// </summary>
+        public bool? IsCustomer { get; set; }
+        
+        /// <summary>
+        /// Là quản lý
+        /// </summary>
+        public bool? IsManager { get; set; }
     }
 }
