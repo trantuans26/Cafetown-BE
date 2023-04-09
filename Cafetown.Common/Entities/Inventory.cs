@@ -4,6 +4,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
+using System.Reflection.Metadata;
 
 namespace Cafetown.Common
 {
@@ -45,7 +48,7 @@ namespace Cafetown.Common
         /// <summary>
         /// Số lượng
         /// </summary>
-        public int? Quantity { get; set; }    
+        public int? Quantity { get; set; }
 
         /// <summary>
         /// Đơn giá
@@ -56,5 +59,7 @@ namespace Cafetown.Common
         /// Mô tả
         /// </summary>
         public string? Description { get; set; }
+
+        public Blob? Image { get; set; }
     }
 }

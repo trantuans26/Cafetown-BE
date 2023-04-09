@@ -24,11 +24,12 @@ builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
 // Phân hệ nhân viên
 builder.Services.AddScoped<IEmployeeBL, EmployeeBL>();
 builder.Services.AddScoped<IEmployeeDL, EmployeeDL>();
-builder.Services.AddScoped<EmployeesController, EmployeesController>();
 
 // Phân hệ hàng hóa
 builder.Services.AddScoped<IInventoryBL, InventoryBL>();
 builder.Services.AddScoped<IInventoryDL, InventoryDL>();
+builder.Services.AddScoped<IInventoryCategoryDL, InventoryCategoryDL>();
+
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
 var app = builder.Build();
