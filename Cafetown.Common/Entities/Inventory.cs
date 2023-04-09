@@ -33,6 +33,16 @@ namespace Cafetown.Common
         public Guid? InventoryCategoryID { get; set; }
 
         /// <summary>
+        /// Mã danh mục hàng hóa
+        /// </summary>
+        public string? InventoryCategoryCode { get; set; }
+
+        /// <summary>
+        /// Tên danh mục hàng hóa
+        /// </summary>
+        public string? InventoryCategoryName { get; set; }
+
+        /// <summary>
         /// Số lượng
         /// </summary>
         public int? Quantity { get; set; }    

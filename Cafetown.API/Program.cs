@@ -27,6 +27,7 @@ builder.Services.AddScoped<IEmployeeDL, EmployeeDL>();
 builder.Services.AddScoped<EmployeesController, EmployeesController>();
 
 // Phân hệ hàng hóa
+builder.Services.AddScoped<IInventoryBL, InventoryBL>();
 builder.Services.AddScoped<IInventoryDL, InventoryDL>();
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
