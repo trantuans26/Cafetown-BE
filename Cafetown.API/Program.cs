@@ -29,6 +29,7 @@ builder.Services.AddScoped<IEmployeeDL, EmployeeDL>();
 builder.Services.AddScoped<IInventoryBL, InventoryBL>();
 builder.Services.AddScoped<IInventoryDL, InventoryDL>();
 builder.Services.AddScoped<IInventoryCategoryDL, InventoryCategoryDL>();
+builder.Services.AddScoped<IInventoryCategoryBL, InventoryCategoryBL>();
 
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
