@@ -31,6 +31,10 @@ builder.Services.AddScoped<IInventoryDL, InventoryDL>();
 builder.Services.AddScoped<IInventoryCategoryDL, InventoryCategoryDL>();
 builder.Services.AddScoped<IInventoryCategoryBL, InventoryCategoryBL>();
 
+// Phân hệ hóa đơn
+builder.Services.AddScoped<IInvoiceBL, InvoiceBL>();
+builder.Services.AddScoped<IInvoiceDL, InvoiceDL>();
+
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
 var app = builder.Build();

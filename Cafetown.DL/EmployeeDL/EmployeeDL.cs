@@ -21,6 +21,7 @@ namespace Cafetown.DL
         {
             _connectionDL = connectionDL;
         }
+        #endregion
 
         public IEnumerable<Employee> ExportExcel(string? keyword)
         {
@@ -46,6 +47,5 @@ namespace Cafetown.DL
 
             return employees;
         }
-        #endregion
     }
 }
