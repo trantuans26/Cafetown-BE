@@ -60,6 +60,10 @@ namespace Cafetown.Common
         /// </summary>
         public string? Description { get; set; }
 
-        public Blob? Image { get; set; }
+        public string? Image 
+        { 
+            get; 
+            set; 
+        }
     }
 }
