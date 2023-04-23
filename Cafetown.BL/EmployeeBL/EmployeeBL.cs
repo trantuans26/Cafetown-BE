@@ -257,6 +257,18 @@ namespace Cafetown.BL
 
             return stream;
         }
+
+        /// <summary>
+        /// Chức năng đăng nhập
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        /// TTTuan: 17/4/2023
+        public Employee login(string username, string password)
+        {
+            return _employeeDL.login(username, password);
+        }
         #endregion
     }
 }

@@ -16,5 +16,14 @@ namespace Cafetown.DL
         /// <returns></returns>
         /// Modified by: TTTuan 5/1/2023
         public IEnumerable<Employee> ExportExcel(string? keyword);
+        
+        /// <summary>
+        /// Chức năng đăng nhập
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        /// TTTuan: 17/4/2023
+        public Employee login(string username, string password);
     }
 }

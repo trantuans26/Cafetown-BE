@@ -33,5 +33,14 @@ namespace Cafetown.BL
         /// <returns>Đối tượng ServiceResponse mỗ tả thành công hay thất bại</returns>
         /// Created by: TTTuan (23/12/2022)
         public new ServiceResponse ValidateData(Employee employee);
+
+        /// <summary>
+        /// Chức năng đăng nhập
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        /// TTTuan: 17/4/2023
+        public Employee login(string username, string password);
     }
 }
