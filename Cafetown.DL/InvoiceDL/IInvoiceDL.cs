@@ -9,5 +9,13 @@ namespace Cafetown.DL
 {
     public interface IInvoiceDL : IBaseDL<Invoice>
     {
+        /// Created by: TTTuan (23/12/2022)
+        public InvoiceMasterDetail GetMasterDetailByID(Guid InvoiceID);
+
+        public int ResetInvoiceDetailsByID(Guid InvoiceID);
+
+        public int InsertDetail(Guid InvoiceID, InvoiceDetail InvoiceDetail);
+
+        public int InsertMaster(Invoice invoice);
     }
 }

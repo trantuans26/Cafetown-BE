@@ -9,5 +9,11 @@ namespace Cafetown.BL
 {
     public interface IInvoiceBL : IBaseBL<Invoice>
     {
+        /// Created by: TTTuan (23/12/2022)
+        public InvoiceMasterDetail GetMasterDetailByID(Guid InvoiceID);
+
+        public int InsertMasterDetail(InvoiceMasterDetail request);
+
+        public int UpdateMasterDetail(Guid invoiceID, InvoiceMasterDetail request);
     }
 }

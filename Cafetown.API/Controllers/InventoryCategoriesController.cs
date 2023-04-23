@@ -24,7 +24,7 @@ namespace Cafetown.API.Controllers
         /// API lấy danh sách tất cả bản ghi
         /// </summary>
         /// <returns>Danh sách toàn bộ bản ghi trong bảng</returns>
-        /// Modified by: TTTuan 5/1/2023
+        /// Modified by: TTTuan 5/3/2023
         [HttpGet]
         public IActionResult GetAllRecords()
         {

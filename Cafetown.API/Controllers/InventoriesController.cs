@@ -26,7 +26,7 @@ namespace Cafetown.API.Controllers
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns>File excel</returns>
-        /// Modified by: TTTuan (5/1/2022)
+        /// Modified by: TTTuan (5/3/2023)
         [HttpGet("export")]
         public IActionResult ExportExcel([FromQuery] string? keyword)
         {

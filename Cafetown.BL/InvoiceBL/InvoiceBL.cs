@@ -20,5 +20,59 @@ namespace Cafetown.BL
             _invoiceDL = invoiceDL;
         }
         #endregion
+        public InvoiceMasterDetail GetMasterDetailByID(Guid InvoiceID)
+        {
+            return _invoiceDL.GetMasterDetailByID(InvoiceID);
+        }
+
+        public int InsertMasterDetail(InvoiceMasterDetail request)
+        {
+            var master = request.InvoiceMaster;
+            var details = request.InvoiceDetails;
+            var detailsResult = 0;
+            var result = 0;
+            
+            if(master != null)
+            {
+                master.InvoiceID = Guid.NewGuid();
+
+                result = _invoiceDL.InsertMaster(master);
+
+                if (details != null && details.Count > 0)
+                {
+                    foreach (InvoiceDetail detail in details)
+                    {
+                        detailsResult += _invoiceDL.InsertDetail(master.InvoiceID.HasValue ? master.InvoiceID.Value : Guid.Empty, detail);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public int UpdateMasterDetail(Guid invoiceID, InvoiceMasterDetail request)
+        {
+            var master = request.InvoiceMaster;
+            var details = request.InvoiceDetails;
+            var detailsResult = 0;
+            var result = 0;
+
+            if (master != null)
+            {
+                result = _invoiceDL.UpdateRecordByID(invoiceID, master);
+
+                _invoiceDL.ResetInvoiceDetailsByID(invoiceID);
+
+                if (details != null && details.Count > 0)
+                {
+                    foreach (InvoiceDetail detail in details)
+                    {
+                        detailsResult += _invoiceDL.InsertDetail(invoiceID, detail);
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }

@@ -62,5 +62,9 @@ namespace Cafetown.Common
         /// </summary>
         public static readonly string CHECK_DUPLICATE_CODE = "Proc_{0}_CheckDuplicateCode";
 
+        /// <summary>
+        /// Tên proc đăng nhập
+        /// </summary>
+        public static readonly string LOGIN = "Proc_{0}_Login";
     }
 }

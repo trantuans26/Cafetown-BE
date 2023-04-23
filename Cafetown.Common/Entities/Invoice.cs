@@ -14,6 +14,7 @@ namespace Cafetown.Common
         /// <summary>
         /// ID hóa đơn
         /// </summary>
+        [PrimaryKey]
         public Guid? InvoiceID { get; set; }
 
         /// <summary>
@@ -21,14 +22,22 @@ namespace Cafetown.Common
         /// </summary>
         public string? InvoiceCode { get; set; }
 
+        public string? Customer { get; set; }
+
+        public string? PhoneCustomer { get; set; }
+
         /// <summary>
         /// Tổng tiền
         /// </summary>
         public float? TotalCost { get; set; }
 
+        public string? Description { get; set; }
+
         /// <summary>
         /// Ngày mua
         /// </summary>
         public DateTime? PurchaseDate { get; set; }
+
+        public bool? IsCollected { get; set; }
     }
 }
