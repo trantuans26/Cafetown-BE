@@ -21,7 +21,7 @@ namespace Cafetown.Common
         /// <summary>
         /// Ngày sửa gần nhất
         /// </summary>
-        public DateTime? ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Người sửa gần nhất

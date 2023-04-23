@@ -18,6 +18,7 @@ namespace Cafetown.Common
         /// <summary>
         /// ID hàng hóa
         /// </summary>
+        [PrimaryKey]
         public Guid? InventoryID { get; set; }
 
         /// <summary>
