@@ -108,7 +108,7 @@ namespace Cafetown.Common
         /// <summary>
         /// Là nhân viên
         /// </summary>
-        public bool? IsCustomer { get; set; }
+        public bool? IsEmployee { get; set; }
         
         /// <summary>
         /// Là quản lý

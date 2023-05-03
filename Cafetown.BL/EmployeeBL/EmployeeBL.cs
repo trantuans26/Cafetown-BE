@@ -269,6 +269,52 @@ namespace Cafetown.BL
         {
             return _employeeDL.login(username, password);
         }
+
+        /// <summary>
+        /// Sửa một bản ghi
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="record"></param>
+        /// <returns>ServiceResponse</returns>
+        /// Modified by: TTTuan 5/1/2023
+        public ServiceResponse UpdateRecordByLogin(Guid recordID, Employee record)
+        {
+            // Validate
+            var validateResult = ValidateData(record);
+
+            if (validateResult.StatusResponse == StatusResponse.Done)
+            {
+                var checkDuplicateCode = CheckDuplicateCode(recordID, record);
+
+                if (checkDuplicateCode.StatusResponse == StatusResponse.Done)
+                {
+                    var numberOfAffectedRows = _employeeDL.UpdateRecordByLogin(recordID, record);
+
+                    if (numberOfAffectedRows > 0)
+                    {
+                        return new ServiceResponse
+                        {
+                            StatusResponse = StatusResponse.Done,
+                        };
+                    }
+                    else
+                    {
+                        return new ServiceResponse
+                        {
+                            StatusResponse = StatusResponse.Failed,
+                        };
+                    }
+                }
+                else
+                {
+                    return checkDuplicateCode;
+                }
+            }
+            else
+            {
+                return validateResult;
+            }
+        }
         #endregion
     }
 }

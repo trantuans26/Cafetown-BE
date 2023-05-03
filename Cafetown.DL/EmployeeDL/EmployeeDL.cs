@@ -78,5 +78,55 @@ namespace Cafetown.DL
 
             return employee;
         }
+
+        /// <summary>
+        /// Sửa một bản ghi
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="record"></param>
+        /// <returns>Trả về số dòng bị ảnh hưởng</returns>
+        /// Modified by: TTTuan 5/1/2023
+        public int UpdateRecordByLogin(Guid recordID, Employee record)
+        {
+            // Chuẩn bị chuỗi kết nối
+            var connectionString = DataContext.ConnectionString;
+
+            // Chuẩn bị tên stored procedure
+            var storedProcedureName = "Proc_Employee_UpdateByLogin";
+
+            // Chuẩn bị tham số đầu vào cho procedure
+            var parameters = new DynamicParameters();
+
+            var properties = typeof(Employee).GetProperties();
+
+            foreach (var property in properties)
+            {
+                var propertyName = property.Name;
+
+                object? propertyValue;
+
+                var primaryKeyAttribute = (PrimaryKeyAttribute?)Attribute.GetCustomAttribute(property, typeof(PrimaryKeyAttribute));
+                if (primaryKeyAttribute != null)
+                {
+                    propertyValue = recordID;
+                }
+                else
+                {
+                    propertyValue = property.GetValue(record, null);
+                }
+                parameters.Add($"${propertyName}", propertyValue);
+            }
+
+            var numberOfAffectedRows = 0;
+
+            // Khởi tạo kết nối đến DB
+            using (var connection = _connectionDL.InitConnection(connectionString))
+            {
+                // Gọi vào DB để chạy stored ở trên
+                numberOfAffectedRows = _connectionDL.Execute(connection, storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+            }
+
+            return numberOfAffectedRows;
+        }
     }
 }

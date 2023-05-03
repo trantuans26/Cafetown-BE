@@ -25,5 +25,14 @@ namespace Cafetown.DL
         /// <returns></returns>
         /// TTTuan: 17/4/2023
         public Employee login(string username, string password);
+
+        /// <summary>
+        /// Sửa một bản ghi
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="record"></param>
+        /// <returns>Trả về số dòng bị ảnh hưởng</returns>
+        /// Modified by: TTTuan 5/1/2023
+        public int UpdateRecordByLogin(Guid recordID, Employee record);
     }
 }

@@ -35,6 +35,10 @@ builder.Services.AddScoped<IInventoryCategoryBL, InventoryCategoryBL>();
 builder.Services.AddScoped<IInvoiceBL, InvoiceBL>();
 builder.Services.AddScoped<IInvoiceDL, InvoiceDL>();
 
+// Tổng quan
+builder.Services.AddScoped<IDashboardBL, DashboardBL>();
+builder.Services.AddScoped<IDashboardDL, DashboardDL>();
+
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
 var app = builder.Build();

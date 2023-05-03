@@ -94,6 +94,55 @@ namespace Cafetown.API.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// API Sửa 1 bản ghi theo ID
+        /// </summary>
+        /// <param name="id">ID của bản ghi cần sửa</param>
+        /// <param name="record">Đối tượng bản ghi cần sửa</param>
+        /// <returns>ID của bản ghi vừa sửa</returns>
+        /// Created by: TTTuan (23/12/2022)
+        [HttpPut("login/{id}")]
+        public IActionResult UpdateRecordByLogin([FromRoute] Guid id, [FromBody] Employee record)
+        {
+            try
+            {
+                var result = _employeeBL.UpdateRecordByLogin(id, record);
+
+                // Xử lý kết quả trả về
+                if (result.StatusResponse == StatusResponse.Done)
+                {
+                    return StatusCode(StatusCodes.Status200OK);
+                }
+                else if (result.StatusResponse == StatusResponse.Invalid || result.StatusResponse == StatusResponse.DuplicateCode)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, result.Data);
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status404NotFound, new
+                    {
+                        ErrorCode = ErrorCode.UpdateFailed,
+                        DevMsg = ErrorResultResource.DevMsg_UpdateFailed,
+                        UserMsg = ErrorResultResource.UserMsg_UpdateFailed,
+                        MoreInfo = ErrorResultResource.MoreInfo_UpdateFailed,
+                        TraceID = HttpContext.TraceIdentifier
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
+                {
+                    ErrorCode = ErrorCode.Exception,
+                    DevMsg = ErrorResultResource.DevMsg_Exception,
+                    UserMsg = ErrorResultResource.UserMsg_Exception,
+                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
+                    TraceID = HttpContext.TraceIdentifier
+                });
+            }
+        }
         #endregion
     }
 }

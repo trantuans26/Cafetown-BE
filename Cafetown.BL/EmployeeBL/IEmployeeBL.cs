@@ -42,5 +42,14 @@ namespace Cafetown.BL
         /// <returns></returns>
         /// TTTuan: 17/4/2023
         public Employee login(string username, string password);
+
+        /// <summary>
+        /// Sửa một bản ghi
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="record"></param>
+        /// <returns>ServiceResponse</returns>
+        /// Modified by: TTTuan 5/1/2023
+        public ServiceResponse UpdateRecordByLogin(Guid recordID, Employee record);
     }
 }
