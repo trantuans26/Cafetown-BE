@@ -17,5 +17,7 @@ namespace Cafetown.DL
         public int InsertDetail(Guid InvoiceID, InvoiceDetail InvoiceDetail);
 
         public int InsertMaster(Invoice invoice);
+
+        public int ResetInventoryByID(Guid inventoryID, Guid invoiceID);
     }
 }

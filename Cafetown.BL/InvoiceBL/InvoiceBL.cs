@@ -61,6 +61,14 @@ namespace Cafetown.BL
             {
                 result = _invoiceDL.UpdateRecordByID(invoiceID, master);
 
+                if (details != null && details.Count > 0)
+                {
+                    foreach (InvoiceDetail detail in details)
+                    {
+                        detailsResult += _invoiceDL.ResetInventoryByID(detail.InventoryID.HasValue ? detail.InventoryID.Value : Guid.Empty, invoiceID);
+                    }
+                }
+
                 _invoiceDL.ResetInvoiceDetailsByID(invoiceID);
 
                 if (details != null && details.Count > 0)

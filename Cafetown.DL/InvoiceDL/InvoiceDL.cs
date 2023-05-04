@@ -142,6 +142,33 @@ namespace Cafetown.DL
             return numberOfAffectedRows;
         }
 
+        public int ResetInventoryByID(Guid inventoryID, Guid invoiceID)
+        {
+            // Chuẩn bị chuỗi kết nối
+            var connectionString = DataContext.ConnectionString;
+
+            // Chuẩn bị tên stored procedure
+            var storedProcedureName = "Proc_Inventory_ResetInventoryByID";
+
+            // Chuẩn bị tham số đầu vào
+            var parameters = new DynamicParameters();
+            parameters.Add("$InvoiceID", invoiceID);
+            parameters.Add("$InventoryID", inventoryID);
+
+            // Khai báo kết quả trả về
+            var afftectedRows = 0;
+
+            // Khởi tạo kết nối đến DB
+            using (var mySqlConnection = _connectionDL.InitConnection(connectionString))
+            {
+                // Gọi vào DB để chạy stored ở trên
+                afftectedRows = mySqlConnection.Execute(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+            }
+
+            return afftectedRows;
+        }
+
         public int ResetInvoiceDetailsByID(Guid InvoiceID)
         {
             // Chuẩn bị chuỗi kết nối
