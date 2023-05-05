@@ -126,7 +126,7 @@ namespace Cafetown.API.Controllers
         {
             try
             {
-                IEnumerable<Invoice> result = _dashboardBL.GetTopInvoice();
+                IEnumerable<Inventory> result = _dashboardBL.GetTopInvoice();
 
                 return StatusCode(StatusCodes.Status200OK, result);
             }

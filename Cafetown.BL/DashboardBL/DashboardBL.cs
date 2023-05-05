@@ -50,7 +50,7 @@ namespace Cafetown.BL
             return _dashboardDL.GetTopInventory();
         }
 
-        public IEnumerable<Invoice> GetTopInvoice()
+        public IEnumerable<Inventory> GetTopInvoice()
         {
             return _dashboardDL.GetTopInvoice();
         }

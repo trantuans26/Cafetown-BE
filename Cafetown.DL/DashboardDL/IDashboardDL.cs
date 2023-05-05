@@ -27,6 +27,6 @@ namespace Cafetown.DL
 
         public float GetSumTotalCost();
 
-        public IEnumerable<Invoice> GetTopInvoice();
+        public IEnumerable<Inventory> GetTopInvoice();
     }
 }

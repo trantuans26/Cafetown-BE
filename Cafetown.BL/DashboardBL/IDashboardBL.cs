@@ -23,6 +23,6 @@ namespace Cafetown.BL
 
         public SumTotalCosts GetSumTotalCosts();
 
-        public IEnumerable<Invoice> GetTopInvoice();
+        public IEnumerable<Inventory> GetTopInvoice();
     }
 }

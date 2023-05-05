@@ -168,7 +168,7 @@ namespace Cafetown.DL
             };
         }
 
-        public IEnumerable<Invoice> GetTopInvoice()
+        public IEnumerable<Inventory> GetTopInvoice()
         {
             // Chuẩn bị chuỗi kết nối
             var connectionString = DataContext.ConnectionString;
@@ -180,13 +180,13 @@ namespace Cafetown.DL
             var parameters = new DynamicParameters();
 
             // Khai báo kết quả trả về
-            var records = default(IEnumerable<Invoice>);
+            var records = default(IEnumerable<Inventory>);
 
             // Khởi tạo kết nối đến DB
             using (var mySqlConnection = _connectionDL.InitConnection(connectionString))
             {
                 // Gọi vào DB để chạy stored ở trên
-               records = mySqlConnection.Query<Invoice>(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+               records = mySqlConnection.Query<Inventory>(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
             }
 
             return records;
