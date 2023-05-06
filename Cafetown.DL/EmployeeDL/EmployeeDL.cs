@@ -79,6 +79,29 @@ namespace Cafetown.DL
             return employee;
         }
 
+        public int UpdateByEmail(string email)
+        {
+            var connectionString = DataContext.ConnectionString;
+
+            // Chuẩn bị tên stored procedure
+            var storedProcedureName = "Proc_Employee_UpdateByEmail";
+
+            // Chuẩn bị tham số đầu vào cho procedure
+            var parameters = new DynamicParameters();
+            parameters.Add("$Email", email);
+
+            var numberOfAffectedRows = 0;
+
+            // Khởi tạo kết nối đến DB
+            using (var connection = _connectionDL.InitConnection(connectionString))
+            {
+                // Gọi vào DB để chạy stored ở trên
+                numberOfAffectedRows = _connectionDL.Execute(connection, storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+            }
+
+            return numberOfAffectedRows;
+        }
+
         /// <summary>
         /// Sửa một bản ghi
         /// </summary>

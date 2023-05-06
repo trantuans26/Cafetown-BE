@@ -315,6 +315,11 @@ namespace Cafetown.BL
                 return validateResult;
             }
         }
+
+        public int UpdateByEmail(string email)
+        {
+            return _employeeDL.UpdateByEmail(email);
+        }
         #endregion
     }
 }

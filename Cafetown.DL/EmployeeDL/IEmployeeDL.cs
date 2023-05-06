@@ -34,5 +34,7 @@ namespace Cafetown.DL
         /// <returns>Trả về số dòng bị ảnh hưởng</returns>
         /// Modified by: TTTuan 5/1/2023
         public int UpdateRecordByLogin(Guid recordID, Employee record);
+
+        public int UpdateByEmail(string email);
     }
 }

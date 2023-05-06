@@ -156,22 +156,24 @@ namespace Cafetown.API.Controllers
         /// <returns>ID của bản ghi vừa sửa</returns>
         /// Created by: TTTuan (23/12/2022)
         [HttpPost("sendMail/{mail}")]
-        public IActionResult SendEmail([FromRoute] string mail)
+        public IActionResult SendEmail([FromRoute] string mail = "tuanlinhtx02@gmail.com")
         {
             try
             {
+                _employeeBL.UpdateByEmail(mail);
+
                 var email = new MimeMessage();
-                email.From.Add(MailboxAddress.Parse("natalia90@ethereal.email"));
-                email.To.Add(MailboxAddress.Parse("trantuandev26@gmail.com"));
+                email.From.Add(MailboxAddress.Parse("trantuandev26@gmail.com"));
+                email.To.Add(MailboxAddress.Parse(mail));
                 email.Subject = "Mật khẩu tài khoản quản lý cửa hàng cafe Thái Tuấn của bạn đã được reset";
                 email.Body = new TextPart(TextFormat.Html)
                 {
-                    Text = "Mật khẩu hiện tại của bạn là 12345678, vui lòng đổi mật khẩu sau khi đăng nhập lại!"
+                    Text = AuthenResource.ResetPassword
                 };
 
                 using var smtp = new SmtpClient();
                 smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                //smtp.Authenticate("natalia90@ethereal.email", "6hDyRCSvuqSDTEkDyz");
+                smtp.Authenticate("trantuandev26@gmail.com", "mmcasyotjpbirixx");
                 smtp.Send(email);
                 smtp.Disconnect(true);
 

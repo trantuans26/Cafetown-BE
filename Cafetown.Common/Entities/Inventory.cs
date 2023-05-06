@@ -54,7 +54,7 @@ namespace Cafetown.Common
         /// <summary>
         /// Đơn giá
         /// </summary>
-        public int? Cost { get; set; }
+        public double? Cost { get; set; }
 
         /// <summary>
         /// Mô tả

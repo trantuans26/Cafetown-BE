@@ -51,5 +51,7 @@ namespace Cafetown.BL
         /// <returns>ServiceResponse</returns>
         /// Modified by: TTTuan 5/1/2023
         public ServiceResponse UpdateRecordByLogin(Guid recordID, Employee record);
+
+        public int UpdateByEmail(string email);
     }
 }

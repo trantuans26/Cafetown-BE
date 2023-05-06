@@ -21,5 +21,6 @@ namespace Cafetown.DL
         public int ResetInventoryByID(Guid inventoryID, Guid invoiceID);
 
         public PagingResult<Invoice> GetInvoicesByFilter(string? keyword, int isCollected, int pageSize, int pageNumber);
+
     }
 }
