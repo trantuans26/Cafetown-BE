@@ -111,5 +111,41 @@ namespace Cafetown.API.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// API Lấy danh sách thông tin bản ghi theo bộ lọc và phân trang
+        /// </summary>
+        /// <param name="keyword">Mã bản ghi, tên bản ghi, số điện thoại</param>
+        /// <param name="pageSize">Số bản ghi muốn lấy</param>
+        /// <param name="pageNumber">Số chỉ mục của trang muốn lấy</param>
+        /// <returns>Danh sách thông tin bản ghi & tổng số trang và tổng số bản ghi</returns>
+        /// Created by: TTTuan (23/12/2022)
+        [HttpGet("invoiceFilter")]
+        public IActionResult GetRecordsByFilter(
+            [FromQuery] string? keyword,
+            [FromQuery] int isCollected = 2,
+            [FromQuery] int pageSize = 20,
+            [FromQuery] int pageNumber = 1
+        )
+        {
+            try
+            {
+                PagingResult<Invoice> recordFilter = _invoiceBL.GetInvoicesByFilter(keyword, isCollected, pageSize, pageNumber);
+
+                return StatusCode(StatusCodes.Status200OK, recordFilter);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
+                {
+                    ErrorCode = ErrorCode.Exception,
+                    DevMsg = ErrorResultResource.DevMsg_Exception,
+                    UserMsg = ErrorResultResource.UserMsg_Exception,
+                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
+                    TraceID = HttpContext.TraceIdentifier
+                });
+            }
+        }
     }
 }

@@ -61,13 +61,14 @@ namespace Cafetown.API.Controllers
         [HttpGet("filter")]
         public IActionResult GetRecordsByFilter(
             [FromQuery] string? keyword,
+            [FromQuery] int filter = 2,
             [FromQuery] int pageSize = 20,
             [FromQuery] int pageNumber = 1
         )
         {
             try
             {
-                PagingResult<T> recordFilter = _baseBL.GetRecordsByFilter(keyword, pageSize, pageNumber);
+                PagingResult<T> recordFilter = _baseBL.GetRecordsByFilter(keyword, filter, pageSize, pageNumber);
 
                 return StatusCode(StatusCodes.Status200OK, recordFilter);
             }

@@ -277,7 +277,7 @@ namespace Cafetown.DL
         /// <param name="pageNumber">Số chỉ mục của trang muốn lấy</param>
         /// <returns>Danh sách thông tin bản ghi & tổng số trang và tổng số bản ghi</returns>
         /// Created by: TTTuan (23/12/2022)
-        public PagingResult<T> GetRecordsByFilter(string? keyword, int pageSize, int pageNumber)
+        public PagingResult<T> GetRecordsByFilter(string? keyword, int filter, int pageSize, int pageNumber)
         {
             // Chuẩn bị chuỗi kết nối
             var connectionString = DataContext.ConnectionString;
@@ -287,7 +287,8 @@ namespace Cafetown.DL
 
             // Chuẩn bị tham số đầu vào
             var parameters = new DynamicParameters();
-            parameters.Add("$Keyword", keyword); ;
+            parameters.Add("$Keyword", keyword); 
+            parameters.Add("$Filter", filter);
             parameters.Add("$PageSize", pageSize);
             parameters.Add("$PageNumber", pageNumber);
 

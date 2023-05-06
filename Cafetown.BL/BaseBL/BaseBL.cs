@@ -75,10 +75,9 @@ namespace Cafetown.BL
         /// <param name="pageNumber">Số chỉ mục của trang muốn lấy</param>
         /// <returns>Danh sách thông tin bản ghi & tổng số trang và tổng số bản ghi</returns>
         /// Created by: TTTuan (23/12/2022)
-        public PagingResult<T> GetRecordsByFilter(string? keyword, int pageSize, int pageNumber)
+        public PagingResult<T> GetRecordsByFilter(string? keyword, int filter, int pageSize, int pageNumber)
         {
-            return _baseDL.GetRecordsByFilter(keyword, pageSize, pageNumber);
-
+            return _baseDL.GetRecordsByFilter(keyword, filter, pageSize, pageNumber);
         }
 
         /// <summary>

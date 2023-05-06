@@ -56,7 +56,7 @@ namespace Cafetown.DL
         /// <param name="pageNumber">Số chỉ mục của trang muốn lấy</param>
         /// <returns>Danh sách thông tin bản ghi & tổng số trang và tổng số bản ghi</returns>
         /// Created by: TTTuan (23/12/2022)
-        public PagingResult<T> GetRecordsByFilter(string? keyword, int pageSize, int pageNumber);
+        public PagingResult<T> GetRecordsByFilter(string? keyword, int filter, int pageSize, int pageNumber);
 
         /// <summary>
         /// API lấy thông tin chi tiết của 1 bản ghi theo ID

@@ -15,5 +15,7 @@ namespace Cafetown.BL
         public int InsertMasterDetail(InvoiceMasterDetail request);
 
         public int UpdateMasterDetail(Guid invoiceID, InvoiceMasterDetail request);
+
+        public PagingResult<Invoice> GetInvoicesByFilter(string? keyword, int isCollected, int pageSize, int pageNumber);
     }
 }

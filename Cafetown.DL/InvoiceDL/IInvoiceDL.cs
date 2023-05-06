@@ -19,5 +19,7 @@ namespace Cafetown.DL
         public int InsertMaster(Invoice invoice);
 
         public int ResetInventoryByID(Guid inventoryID, Guid invoiceID);
+
+        public PagingResult<Invoice> GetInvoicesByFilter(string? keyword, int isCollected, int pageSize, int pageNumber);
     }
 }
