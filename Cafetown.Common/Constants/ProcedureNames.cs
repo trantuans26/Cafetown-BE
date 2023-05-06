@@ -35,7 +35,7 @@ namespace Cafetown.Common
         /// <summary>
         /// Tên proc sửa 1 bản ghi
         /// </summary>
-        public static readonly string UPDATE_BY_ID = "Proc_{0}_UpdateByID";
+        public static readonly string UPDATE_BY_ID = "Proc_{0}_Update";
 
         /// <summary>
         /// Tên proc xoá 1 bản ghi

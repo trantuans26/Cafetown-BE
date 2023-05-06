@@ -1,7 +1,11 @@
 ﻿using Cafetown.BL;
 using Cafetown.Common;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MimeKit.Text;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace Cafetown.API.Controllers
@@ -129,6 +133,49 @@ namespace Cafetown.API.Controllers
                         TraceID = HttpContext.TraceIdentifier
                     });
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
+                {
+                    ErrorCode = ErrorCode.Exception,
+                    DevMsg = ErrorResultResource.DevMsg_Exception,
+                    UserMsg = ErrorResultResource.UserMsg_Exception,
+                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
+                    TraceID = HttpContext.TraceIdentifier
+                });
+            }
+        }
+
+        /// <summary>
+        /// API Sửa 1 bản ghi theo ID
+        /// </summary>
+        /// <param name="id">ID của bản ghi cần sửa</param>
+        /// <param name="record">Đối tượng bản ghi cần sửa</param>
+        /// <returns>ID của bản ghi vừa sửa</returns>
+        /// Created by: TTTuan (23/12/2022)
+        [HttpPost("sendMail/{mail}")]
+        public IActionResult SendEmail([FromRoute] string mail)
+        {
+            try
+            {
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse("natalia90@ethereal.email"));
+                email.To.Add(MailboxAddress.Parse("trantuandev26@gmail.com"));
+                email.Subject = "Mật khẩu tài khoản quản lý cửa hàng cafe Thái Tuấn của bạn đã được reset";
+                email.Body = new TextPart(TextFormat.Html)
+                {
+                    Text = "Mật khẩu hiện tại của bạn là 12345678, vui lòng đổi mật khẩu sau khi đăng nhập lại!"
+                };
+
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                //smtp.Authenticate("natalia90@ethereal.email", "6hDyRCSvuqSDTEkDyz");
+                smtp.Send(email);
+                smtp.Disconnect(true);
+
+                return StatusCode(StatusCodes.Status200OK);
             }
             catch (Exception ex)
             {

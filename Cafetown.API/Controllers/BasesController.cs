@@ -298,7 +298,7 @@ namespace Cafetown.API.Controllers
         {
             try
             {
-                var numberOfAffectedRows = _baseBL.DeleteRecordsByIDs(listIDs.IDs);
+                var numberOfAffectedRows = _baseBL.DeleteRecordsByIDs(listIDs.IDs == null ? string.Empty : listIDs.IDs);
                 if (numberOfAffectedRows > 0)
                 {
                     return StatusCode(StatusCodes.Status200OK, listIDs.IDs);

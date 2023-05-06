@@ -10,6 +10,7 @@ using System.Collections;
 using Cafetown.Common;
 using System.Transactions;
 using static Dapper.SqlMapper;
+using System.Data.Common;
 
 namespace Cafetown.DL
 {
@@ -25,6 +26,8 @@ namespace Cafetown.DL
         public int Execute(IDbConnection? cnn, string? storedProcedureName, DynamicParameters? parameters, CommandType? commandType)
         {
             return cnn.Execute(storedProcedureName, parameters, null, null, commandType);
+            //var command = new CommandDefinition(storedProcedureName, parameters, null, null, commandType, CommandFlags.No);
+            //return ExecuteImpl(cnn, ref command);
         }
 
         /// <summary>

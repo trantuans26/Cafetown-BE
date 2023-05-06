@@ -215,15 +215,15 @@ namespace Cafetown.BL
                 }
 
                 var maxLengthAttribute = (MaxLengthAttribute?)Attribute.GetCustomAttribute(property, typeof(MaxLengthAttribute));
-                if (maxLengthAttribute != null && propertyValue.ToString().Trim().Length > maxLengthAttribute.MaxLength)
+                if (maxLengthAttribute != null && propertyValue?.ToString()?.Trim().Length > maxLengthAttribute.MaxLength)
                 {
                     errorMessages.Add(maxLengthAttribute.ErrorMessage);
                 }
 
                 var regexAttribute = (RegexAttribute?)Attribute.GetCustomAttribute(property, typeof(RegexAttribute));
-                if (regexAttribute != null && propertyValue != null && propertyValue.ToString().Trim().Length > 0)
+                if (regexAttribute != null && propertyValue != null && propertyValue?.ToString()?.Trim().Length > 0)
                 {
-                    if (!Regex.IsMatch(input: propertyValue.ToString(), regexAttribute.Pattern, RegexOptions.IgnoreCase))
+                    if (!Regex.IsMatch(propertyValue.ToString(), regexAttribute.Pattern, RegexOptions.IgnoreCase))
                         errorMessages.Add(regexAttribute.ErrorMessage);
                 }
             }
