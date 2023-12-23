@@ -41,11 +41,7 @@ namespace Cafetown.API.Controllers
                 // Trả về status code và thông báo nếu lỗi
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -77,11 +73,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -106,13 +98,11 @@ namespace Cafetown.API.Controllers
             catch (Exception)
             {
                 // Trả về status code và thông báo nếu lỗi
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
-                    ErrorCode.Exception,
-                    ErrorResultResource.DevMsg_Exception,
-                    ErrorResultResource.UserMsg_Exception,
-                    ErrorResultResource.MoreInfo_Exception,
-                    HttpContext.TraceIdentifier
-                    ));
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
+                {
+                    ErrorCode = ErrorCode.Exception
+
+                });
             }
         }
 
@@ -140,11 +130,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -175,11 +161,7 @@ namespace Cafetown.API.Controllers
                 {
                     return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult()
                     {
-                        ErrorCode = ErrorCode.InsertFailed,
-                        DevMsg = ErrorResultResource.DevMsg_InsertFailed,
-                        UserMsg = ErrorResultResource.UserMsg_InsertFailed,
-                        MoreInfo = ErrorResultResource.MoreInfo_InsertFailed,
-                        TraceID = HttpContext.TraceIdentifier
+                        ErrorCode = ErrorCode.InsertFailed
                     });
                 }
             }
@@ -188,11 +170,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -224,11 +202,7 @@ namespace Cafetown.API.Controllers
                 {
                     return StatusCode(StatusCodes.Status404NotFound, new
                     {
-                        ErrorCode = ErrorCode.UpdateFailed,
-                        DevMsg = ErrorResultResource.DevMsg_UpdateFailed,
-                        UserMsg = ErrorResultResource.UserMsg_UpdateFailed,
-                        MoreInfo = ErrorResultResource.MoreInfo_UpdateFailed,
-                        TraceID = HttpContext.TraceIdentifier
+                        ErrorCode = ErrorCode.UpdateFailed
                     });
                 }
             }
@@ -237,11 +211,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -266,11 +236,7 @@ namespace Cafetown.API.Controllers
                 {
                     return StatusCode(StatusCodes.Status404NotFound, new
                     {
-                        ErrorCode = ErrorCode.DeleteFailed,
-                        DevMsg = ErrorResultResource.DevMsg_DeleteFailed,
-                        UserMsg = ErrorResultResource.UserMsg_DeleteFailed,
-                        MoreInfo = ErrorResultResource.MoreInfo_DeleteFailed,
-                        TraceID = HttpContext.TraceIdentifier
+                        ErrorCode = ErrorCode.DeleteFailed
                     });
                 }
             }
@@ -279,11 +245,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }
@@ -308,11 +270,7 @@ namespace Cafetown.API.Controllers
                 {
                     return StatusCode(StatusCodes.Status404NotFound, new
                     {
-                        ErrorCode = ErrorCode.DeleteFailed,
-                        DevMsg = ErrorResultResource.DevMsg_DeleteFailed,
-                        UserMsg = ErrorResultResource.UserMsg_DeleteFailed,
-                        MoreInfo = ErrorResultResource.MoreInfo_DeleteFailed,
-                        TraceID = HttpContext.TraceIdentifier
+                        ErrorCode = ErrorCode.DeleteFailed
                     });
                 }
             }
@@ -321,11 +279,7 @@ namespace Cafetown.API.Controllers
                 Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
                 {
-                    ErrorCode = ErrorCode.Exception,
-                    DevMsg = ErrorResultResource.DevMsg_Exception,
-                    UserMsg = ErrorResultResource.UserMsg_Exception,
-                    MoreInfo = ErrorResultResource.MoreInfo_Exception,
-                    TraceID = HttpContext.TraceIdentifier
+                    ErrorCode = ErrorCode.Exception
                 });
             }
         }

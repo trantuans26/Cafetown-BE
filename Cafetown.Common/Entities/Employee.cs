@@ -33,11 +33,6 @@ namespace Cafetown.Common
         public string? EmployeeName { get; set; }
 
         /// <summary>
-        /// Chức vụ
-        /// </summary>
-        public string? JobPosition { get; set; }
-
-        /// <summary>
         /// Ngày sinh
         /// </summary>
         [ExcelColumnName("Ngày sinh")]
@@ -83,36 +78,14 @@ namespace Cafetown.Common
         public string? Email { get; set; }
 
         /// <summary>
-        /// Số tài khoản ngân hàng
-        /// </summary>
-        [ExcelColumnName("Số tài khoản")]
-        public string? BankNumber { get; set; }
-
-        /// <summary>
-        /// Tên tài khoản ngân hàng
-        /// </summary>
-        [ExcelColumnName("Tên ngân hàng")]
-        public string? BankName { get; set; }
-
-        /// <summary>
-        /// Chi nhánh ngân hàng
-        /// </summary>
-        [ExcelColumnName("Chi nhánh TK ngân hàng")]
-        public string? BankBranch { get; set; }
-
-        /// <summary>
         /// Mật khẩu
         /// </summary>
         public string? Password { get; set; }
 
-        /// <summary>
-        /// Là nhân viên
-        /// </summary>
-        public bool? IsEmployee { get; set; }
-        
-        /// <summary>
-        /// Là quản lý
-        /// </summary>
-        public bool? IsManager { get; set; }
+        public int voteStatus { get; set; } = 0;
+
+        public string? privateKey { get; set; }
+
+        public string? signature { get; set; }
     }
 }

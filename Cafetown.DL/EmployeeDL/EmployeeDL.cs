@@ -23,30 +23,6 @@ namespace Cafetown.DL
         }
         #endregion
 
-        public IEnumerable<Employee> ExportExcel(string? keyword)
-        {
-            // Chuẩn bị chuỗi kết nối
-            var connectionString = DataContext.ConnectionString;
-
-            // Chuẩn bị tên stored procedure
-            var storedProcedureName = string.Format(ProcedureNames.EXPORT_EXCEL, typeof(Employee).Name);
-
-            // Chuẩn bị tham số đầu vào
-            var parameters = new DynamicParameters();
-            parameters.Add("$Keyword", keyword); ;
-
-            // Khai báo kết quả trả về
-            var employees = default(IEnumerable<Employee>);
-
-            // Khởi tạo kết nối đến DB
-            using (var connection = _connectionDL.InitConnection(connectionString))
-            {
-                // Thực hiện gọi vào db
-                employees = _connectionDL.Query<Employee>(connection, storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
-            }
-
-            return employees;
-        }
 
         /// <summary>
         /// Chức năng đăng nhập
@@ -79,77 +55,9 @@ namespace Cafetown.DL
             return employee;
         }
 
-        public int UpdateByEmail(string email)
+        public int VoteAndEncryptSignature(Guid employeeID, string privateKey, string signature)
         {
-            var connectionString = DataContext.ConnectionString;
-
-            // Chuẩn bị tên stored procedure
-            var storedProcedureName = "Proc_Employee_UpdateByEmail";
-
-            // Chuẩn bị tham số đầu vào cho procedure
-            var parameters = new DynamicParameters();
-            parameters.Add("$Email", email);
-
-            var numberOfAffectedRows = 0;
-
-            // Khởi tạo kết nối đến DB
-            using (var connection = _connectionDL.InitConnection(connectionString))
-            {
-                // Gọi vào DB để chạy stored ở trên
-                numberOfAffectedRows = _connectionDL.Execute(connection, storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
-            }
-
-            return numberOfAffectedRows;
-        }
-
-        /// <summary>
-        /// Sửa một bản ghi
-        /// </summary>
-        /// <param name="recordID"></param>
-        /// <param name="record"></param>
-        /// <returns>Trả về số dòng bị ảnh hưởng</returns>
-        /// Modified by: TTTuan 5/1/2023
-        public int UpdateRecordByLogin(Guid recordID, Employee record)
-        {
-            // Chuẩn bị chuỗi kết nối
-            var connectionString = DataContext.ConnectionString;
-
-            // Chuẩn bị tên stored procedure
-            var storedProcedureName = "Proc_Employee_UpdateByLogin";
-
-            // Chuẩn bị tham số đầu vào cho procedure
-            var parameters = new DynamicParameters();
-
-            var properties = typeof(Employee).GetProperties();
-
-            foreach (var property in properties)
-            {
-                var propertyName = property.Name;
-
-                object? propertyValue;
-
-                var primaryKeyAttribute = (PrimaryKeyAttribute?)Attribute.GetCustomAttribute(property, typeof(PrimaryKeyAttribute));
-                if (primaryKeyAttribute != null)
-                {
-                    propertyValue = recordID;
-                }
-                else
-                {
-                    propertyValue = property.GetValue(record, null);
-                }
-                parameters.Add($"${propertyName}", propertyValue);
-            }
-
-            var numberOfAffectedRows = 0;
-
-            // Khởi tạo kết nối đến DB
-            using (var connection = _connectionDL.InitConnection(connectionString))
-            {
-                // Gọi vào DB để chạy stored ở trên
-                numberOfAffectedRows = _connectionDL.Execute(connection, storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
-            }
-
-            return numberOfAffectedRows;
+            return 9;
         }
     }
 }

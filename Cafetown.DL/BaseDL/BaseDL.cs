@@ -288,7 +288,6 @@ namespace Cafetown.DL
             // Chuẩn bị tham số đầu vào
             var parameters = new DynamicParameters();
             parameters.Add("$Keyword", keyword); 
-            parameters.Add("$Filter", filter);
             parameters.Add("$PageSize", pageSize);
             parameters.Add("$PageNumber", pageNumber);
 

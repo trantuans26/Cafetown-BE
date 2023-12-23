@@ -110,7 +110,10 @@ namespace Cafetown.BL
         public ServiceResponse InsertRecord(T newRecord)
         {
             // Validate
-            var validateResult = ValidateData(newRecord);
+            var validateResult = new ServiceResponse
+            {
+                StatusResponse = StatusResponse.Done
+            };
 
             if (validateResult.StatusResponse == StatusResponse.Done)
             {
@@ -162,7 +165,7 @@ namespace Cafetown.BL
             {
                 var checkDuplicateCode = CheckDuplicateCode(recordID, record);
 
-                if(checkDuplicateCode.StatusResponse == StatusResponse.Done)
+                if (checkDuplicateCode.StatusResponse == StatusResponse.Done)
                 {
                     var numberOfAffectedRows = _baseDL.UpdateRecordByID(recordID, record);
 
@@ -233,10 +236,7 @@ namespace Cafetown.BL
                     StatusResponse = StatusResponse.Invalid,
                     Data = new ErrorResult
                     {
-                        ErrorCode = ErrorCode.InvalidInput,
-                        DevMsg = ErrorResultResource.DevMsg_InvalidInput,
-                        UserMsg = ErrorResultResource.UserMsg_InvalidInput,
-                        MoreInfo = errorMessages,
+                        ErrorCode = ErrorCode.InvalidInput
                     }
                 };
             }

@@ -25,20 +25,6 @@ builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
 builder.Services.AddScoped<IEmployeeBL, EmployeeBL>();
 builder.Services.AddScoped<IEmployeeDL, EmployeeDL>();
 
-// Phân hệ hàng hóa
-builder.Services.AddScoped<IInventoryBL, InventoryBL>();
-builder.Services.AddScoped<IInventoryDL, InventoryDL>();
-builder.Services.AddScoped<IInventoryCategoryDL, InventoryCategoryDL>();
-builder.Services.AddScoped<IInventoryCategoryBL, InventoryCategoryBL>();
-
-// Phân hệ hóa đơn
-builder.Services.AddScoped<IInvoiceBL, InvoiceBL>();
-builder.Services.AddScoped<IInvoiceDL, InvoiceDL>();
-
-// Tổng quan
-builder.Services.AddScoped<IDashboardBL, DashboardBL>();
-builder.Services.AddScoped<IDashboardDL, DashboardDL>();
-
 builder.Services.AddScoped<IConnectionDL, MySqlConnectionDL>();
 
 var app = builder.Build();

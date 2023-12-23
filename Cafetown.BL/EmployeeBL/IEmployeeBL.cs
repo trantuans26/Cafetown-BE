@@ -18,13 +18,6 @@ namespace Cafetown.BL
         /// Modified by: TTTuan 5/1/2023
         public new ServiceResponse CheckDuplicateCode(Guid? employeeID, Employee employee);
 
-        /// <summary>
-        /// Xuất file excel danh sách nhân viên
-        /// </summary>
-        /// <param name="keyword"></param>
-        /// <returns>File excel</returns>
-        /// Modified by: TTTuan (5/1/2022)
-        public MemoryStream ExportExcel(string? keyword);
 
         /// <summary>
         /// Validate dữ liệu đầu vào
@@ -44,14 +37,11 @@ namespace Cafetown.BL
         public Employee login(string username, string password);
 
         /// <summary>
-        /// Sửa một bản ghi
+        /// 
         /// </summary>
-        /// <param name="recordID"></param>
-        /// <param name="record"></param>
-        /// <returns>ServiceResponse</returns>
-        /// Modified by: TTTuan 5/1/2023
-        public ServiceResponse UpdateRecordByLogin(Guid recordID, Employee record);
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        public int VoteAndEncryptSignature(Guid employeeID, string signature);
 
-        public int UpdateByEmail(string email);
     }
 }

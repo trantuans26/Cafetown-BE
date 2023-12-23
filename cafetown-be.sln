@@ -11,10 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cafetown.DL", "Cafetown.DL\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cafetown.Common", "Cafetown.Common\Cafetown.Common.csproj", "{6F86F526-B5C3-4158-BD3F-8EC933CC08F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafetown.BL.UnitTests", "Cafetown.BL.UnitTests\Cafetown.BL.UnitTests.csproj", "{415A5266-BB26-4D72-A2FA-72A5FC5BCBC1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafetown.DL.UnitTests.cs", "Cafetown.DL.UnitTests.cs\Cafetown.DL.UnitTests.cs.csproj", "{5564E992-A5C1-4932-AFC4-8C48BBF2FB67}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,14 +33,6 @@ Global
 		{6F86F526-B5C3-4158-BD3F-8EC933CC08F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F86F526-B5C3-4158-BD3F-8EC933CC08F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F86F526-B5C3-4158-BD3F-8EC933CC08F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{415A5266-BB26-4D72-A2FA-72A5FC5BCBC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{415A5266-BB26-4D72-A2FA-72A5FC5BCBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{415A5266-BB26-4D72-A2FA-72A5FC5BCBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{415A5266-BB26-4D72-A2FA-72A5FC5BCBC1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5564E992-A5C1-4932-AFC4-8C48BBF2FB67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5564E992-A5C1-4932-AFC4-8C48BBF2FB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5564E992-A5C1-4932-AFC4-8C48BBF2FB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5564E992-A5C1-4932-AFC4-8C48BBF2FB67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
